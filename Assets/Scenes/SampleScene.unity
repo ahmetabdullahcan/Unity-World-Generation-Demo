@@ -225,7 +225,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -399,20 +399,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a120c59283b527a0a043c271baedece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 5
-  height: 5
+  width: 500
+  height: 500
+  scale: 50
+  seed: 3131
   targetTilemap: {fileID: 1223161936}
-  tileDelay: 0.15
-  tilePrefabs:
-  - tile: {fileID: 11400000, guid: 54b5b4e92c4bba7939b16cc790ff80b7, type: 2}
-  - tile: {fileID: 11400000, guid: 2cf39ec18e2195aeda0f218116bb0250, type: 2}
-  - tile: {fileID: 11400000, guid: 4f276bf6751da45699f5774e0897fc4e, type: 2}
-  - tile: {fileID: 11400000, guid: 55b7a6bb27689453a847646ce47daef1, type: 2}
-  - tile: {fileID: 11400000, guid: 06a51e13846e43536b09e84a5469f78f, type: 2}
-  - tile: {fileID: 11400000, guid: 3e2b474d511c709c8a8faa40b16e4349, type: 2}
-  - tile: {fileID: 11400000, guid: 8b2fab514be8fba3e81a35a551eb5319, type: 2}
-  - tile: {fileID: 11400000, guid: 602884444bfad37c8a7eeaa6b8e17361, type: 2}
-  - tile: {fileID: 11400000, guid: ac3a1cc552334946ebcc4d2aaa0e2b85, type: 2}
+  waterTile: {fileID: 11400000, guid: a4414815ec88f0b3c90f9e49b8d9a7da, type: 2}
+  dirtTile: {fileID: 11400000, guid: 45c77336b23f5b202b7b3aae9a4d942e, type: 2}
+  grassTile: {fileID: 11400000, guid: 3e2b474d511c709c8a8faa40b16e4349, type: 2}
 --- !u!1 &1223161933
 GameObject:
   m_ObjectHideFlags: 0

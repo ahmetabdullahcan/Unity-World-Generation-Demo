@@ -194,7 +194,7 @@ TextureImporter:
       name: Generation_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 224
         width: 32
         height: 32
@@ -216,7 +216,7 @@ TextureImporter:
       name: Generation_4
       rect:
         serializedVersion: 2
-        x: 224
+        x: 192
         y: 224
         width: 32
         height: 32
@@ -238,8 +238,8 @@ TextureImporter:
       name: Generation_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 224
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -260,7 +260,7 @@ TextureImporter:
       name: Generation_6
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 192
         width: 32
         height: 32
@@ -282,7 +282,7 @@ TextureImporter:
       name: Generation_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 192
         width: 32
         height: 32
@@ -304,8 +304,8 @@ TextureImporter:
       name: Generation_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 64
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -326,7 +326,7 @@ TextureImporter:
       name: Generation_9
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 160
         width: 32
         height: 32
@@ -348,7 +348,7 @@ TextureImporter:
       name: Generation_10
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 160
         width: 32
         height: 32
@@ -362,6 +362,94 @@ TextureImporter:
       bones: []
       spriteID: 6f5f75f00dae3376a863fe66ad92d4da
       internalID: 1147908214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generation_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2af68d974113c813bfd466ad577dced
+      internalID: -427890660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generation_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39a03473d7c97478a31464f665e6a14
+      internalID: -2112567198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generation_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815ee20b19be3da00b44afedcd70108a
+      internalID: 203557181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generation_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e130cf6be0dadaf484d906fe3216965
+      internalID: -1588541060
       vertices: []
       indices: 
       edges: []
@@ -383,6 +471,10 @@ TextureImporter:
       Generation_0: -4701252489097399549
       Generation_1: -1096957903867113078
       Generation_10: 1147908214
+      Generation_11: -427890660
+      Generation_12: -2112567198
+      Generation_13: 203557181
+      Generation_14: -1588541060
       Generation_2: 5950421318203406765
       Generation_3: 4931940839804694968
       Generation_4: -3164188033908917212

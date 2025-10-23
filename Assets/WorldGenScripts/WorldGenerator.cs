@@ -1,99 +1,64 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using System.Collections;
 
 public class WorldGenerator : MonoBehaviour
 {
-    [SerializeField] int width = 10;
-    [SerializeField] int height = 10;
+    [Header("World Size")]
+    [SerializeField] int width = 100;
+    [SerializeField] int height = 50;
 
-    [Header("Target Tilemap")]
+    [Header("Noise Settings")]
+    [SerializeField] float scale = 10f;
+    [SerializeField] float seed = 0f;
+
+    [Header("Tilemap")]
     [SerializeField] Tilemap targetTilemap;
 
-    [Header("Generation Settings")]
-    [SerializeField] float tileDelay = 0.5f; // Her tile arasındaki bekleme süresi
-
-    [Header("Tile Prefabs")]
-    [Tooltip("Top Left = 0, Top = 1, Top Right = 2, Left = 3, Center = 4, Right = 5, Bottom Left = 6, Bottom = 7, Bottom Right = 8")]
-    [SerializeField] TilePrefabData[] tilePrefabs;
-
-
+    [Header("Tiles")]
+    [SerializeField] Tile waterTile;
+    [SerializeField] Tile dirtTile;
+    [SerializeField] Tile grassTile;
 
     void Start()
     {
-        StartCoroutine(GenerateWorldCoroutine());
-    }
-
-    void Update()
-    {
-    }
-
-    IEnumerator GenerateWorldCoroutine()
-    {
         if (targetTilemap == null)
         {
-            Debug.LogError("Target Tilemap not initialized!");
-            yield break;
+            Debug.LogError("Tilemap not assigned!");
+            return;
         }
 
-        targetTilemap.ClearAllTiles();
-
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                int tileIndex = GetTileIndex(x, y);
-                
-                if (tilePrefabs[tileIndex].tile != null)
-                {
-                    Vector3Int tilePosition = new Vector3Int(x, y, 0);
-                    targetTilemap.SetTile(tilePosition, tilePrefabs[tileIndex].tile);
-                    
-                    yield return new WaitForSeconds(tileDelay);
-                }
-            }
-        }
-
-        Debug.Log("World generation completed!");
+        GenerateWorld();
     }
 
     void GenerateWorld()
     {
-        if (targetTilemap == null)
-        {
-            Debug.LogError("Target Tilemap not initialized!");
-            return;
-        }
-
         targetTilemap.ClearAllTiles();
+
+        if (seed == 0)
+            seed = Random.Range(0f, 10000f);
 
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                int tileIndex = GetTileIndex(x, y);
-                
-                if (tilePrefabs[tileIndex].tile != null)
-                {
-                    Vector3Int tilePosition = new Vector3Int(x, y, 0);
-                    targetTilemap.SetTile(tilePosition, tilePrefabs[tileIndex].tile);
-                }
+                float noiseValue = Mathf.PerlinNoise(
+                    (x + seed) / scale,
+                    (y + seed) / scale
+                );
+
+                Tile tileToPlace;
+
+                if (noiseValue < 0.4f)
+                    tileToPlace = waterTile; // düşük değerler → su
+                else if (noiseValue < 0.6f)
+                    tileToPlace = dirtTile; // orta değerler → toprak
+                else
+                    tileToPlace = grassTile; // yüksek değerler → çimen
+
+                targetTilemap.SetTile(new Vector3Int(x, y, 0), tileToPlace);
             }
         }
-    }
 
-    int GetTileIndex(int x, int y)
-    {
-        if (x == 0 && y == height - 1) return 0;           
-        if (x == width - 1 && y == height - 1) return 2;   
-        if (x == 0 && y == 0) return 6;                    
-        if (x == width - 1 && y == 0) return 8;            
-
-        if (y == height - 1) return 1;                     
-        if (y == 0) return 7;                              
-        if (x == 0) return 3;                              
-        if (x == width - 1) return 5;
-
-        return 4;
+        Debug.Log("World generation complete!");
     }
 }
